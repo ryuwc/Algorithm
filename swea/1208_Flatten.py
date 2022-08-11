@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('input.txt', 'r')
+
 for _ in range(1, 11):
     dump = int(input())
     box = list(map(int, input().split()))

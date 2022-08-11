@@ -1,4 +1,3 @@
-import sys; sys.stdin = open('input_부분 수열의 합.txt')
 
 T = int(input())
 for tc in range(1, T+1):

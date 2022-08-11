@@ -1,4 +1,3 @@
-import sys; sys.stdin = open('input_이진탐색.txt')
 
 T = int(input())
 for tc in range(1, T+1):
