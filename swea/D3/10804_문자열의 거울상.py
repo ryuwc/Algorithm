@@ -1,3 +1,4 @@
+import sys; sys.stdin = open('input_문자열의 거울상.txt', 'r')
 
 T = int(input())
 for tc in range(1, T+1):
