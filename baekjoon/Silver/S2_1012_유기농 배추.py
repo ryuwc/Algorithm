@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10 ** 6)
+sys.setrecursionlimit(10 ** 6)  # 일단 혹시 몰라 넣어줌
 
 def dfs(N, M, r, c):        # 미로에서 dfs를 사용하는 것과 같이 재귀 dfs를 선언
     visited[r][c] = 1
