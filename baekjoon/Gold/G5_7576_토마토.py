@@ -16,7 +16,7 @@ def bfs(N, M):          # 여러개의 시작점을 갖는 bfs, 시작점에서�
                     Q.append((nr, nc))
                     visited[nr][nc] = visited[i][j] + 1
 
-def result(N, M):
+def result(N, M):           # 안익은 토마토가 있는지 확인하는 함수
     for i in range(N):
         for j in range(M):
             if tomato[i][j] == 0:
