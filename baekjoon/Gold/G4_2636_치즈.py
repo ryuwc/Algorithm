@@ -38,5 +38,5 @@ while True:
 
 
 
-print(cnt)
-print(cheese_lst[-1])
+print(cnt)              # bfs가 돈 횟수 (치즈가 모두 녹아 없어지는 시간)
+print(cheese_lst[-1])   # 마지막으로 bfs가 돈 횟수 (공기에 닿은 치즈의 갯수)
