@@ -44,8 +44,8 @@ import sys; from collections import deque, defaultdict
 
 
 def bfs(v):
-    visited = [-1] * (N + 1)
-    visited[v] = 0
+    visited = [-1] * (N + 1)        # bfs함수 내에서 visited를 초기화
+    visited[v] = 0                  # 시작점은 0으로 초기화
     Q.append(v)
     while Q:
         v = Q.popleft()
@@ -53,7 +53,7 @@ def bfs(v):
             if visited[w] == -1:
                 visited[w] = visited[v] + 1
                 Q.append(w)
-    return max(visited)
+    return max(visited)             # visited의 최대값이 점수이다.
 
 
 N = int(sys.stdin.readline())
@@ -70,17 +70,13 @@ Q = deque()
 result = 0xfffff
 for i in range(1, N+1):
     tmp = bfs(i)
-    # if tmp < result:
-    #     result = tmp
-    #     candidate = [i]
-    # elif tmp == result:
-    #     candidate.append(i)
-    if tmp < result:
+    if tmp < result:            # 회장이 될 수 있는 점수 찾기
         result = tmp
+
 candidate = []
 for i in range(1, N+1):
     if bfs(i) == result:
-        candidate.append(i)
+        candidate.append(i)     # 회장 후보들을 candidate에 저장
 
 candidate.sort()
 print(result, len(candidate))
