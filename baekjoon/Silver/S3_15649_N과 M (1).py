@@ -1,6 +1,7 @@
 import sys
 
 def solve(depth, N, M):
+    # depth가 M과 같아질 때 리턴
     if depth == M:
         print(*ans)
         return
@@ -10,9 +11,12 @@ def solve(depth, N, M):
         visited[i] = 1
         ans.append(i)
         solve(depth+1, N, M)
-
+        # 리턴 후 실행될 코드
+        # for문이 끝나도 실행이 된다.
         ans.pop()
         visited[i] = 0
+
+
 
 N, M = map(int, sys.stdin.readline().split())
 arr = []
