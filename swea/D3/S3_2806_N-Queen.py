@@ -1,28 +1,36 @@
-# import sys; sys.stdin = open('input_N-Queen.txt', 'r')
-
-def n_queen(visit_j, depth):
+import sys
+# def nQueen(row, visit):
+def nQueen(row):
     global cnt
-    if promising(visit_j, depth):
-        if depth == N:
-            cnt += 1
-        else:
-            for j in range(1, N+1):
-                visit_j[depth+1] = j
-                n_queen(visit_j, depth+1)
+    if row == N:
+        cnt += 1
+        return
+    else:
+        # col은 열번호
+        for col in range(N):
+            val = (1<<col)
+            # if visit & (1<<col): continue    # 같은 열은 제외
+            if visit[col]: continue
 
-def promising(visit_j, depth):
-    k = 1
-    flag = True
-    while k < depth and flag:
-        if visit_j[depth] == visit_j[k] or abs(visit_j[depth] - visit_j[k]) == (depth-k):
-            flag = False
-        k += 1
-    return flag
+            # 대각에 대해서 체크
+            a = row + col
+            b = row - col + (N-1)
+            if line1[a] or line2[b]: continue
 
-for tc in range(int(input())):
-    N = int(input())
+            line1[a] = line2[b] = 1
+            visit[col] = 1
+            # nQueen(row+1, visit | (1<<col))
+            nQueen(row+1)
+            line1[a] = line2[b] = 0
+            visit[col] = 0
 
-    visit = [0]*(N+1)
-    cnt = 0
-    n_queen(visit, 0)
-    print(f'#{tc+1}', cnt)
+N = int(sys.stdin.readline())
+
+visit = [0] * N
+line1 = [0]*(N*N)   # /  (row + col)
+line2 = [0]*(N*N)   # \  (row + col + (N - 1))
+cnt = 0
+
+# nQueen(0, 0)
+nQueen(0)
+print(cnt)
