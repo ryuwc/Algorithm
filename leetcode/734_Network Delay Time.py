@@ -26,4 +26,3 @@ class Solution(object):
         if len(dist) == n:
             return max(dist.values())
         return -1
-    
