@@ -3,6 +3,7 @@ from itertools import combinations
 
 # 숫자를 담은 리스트를 넘겨주면 그 숫자들의 모든 조합에서 최대의 꿀 값을 찾아낸다.
 def comb(nums):
+
     candi_cnt = 0
     for k in range(1, M+1):
         aa = list(combinations(nums, k))
@@ -32,6 +33,7 @@ for tc in range(int(input())):
         for j in range(N-M+1):
             tmp_idx = []
             tmp_nums = []
+            # 임시 벌꿀 가격
             tmp_cnt = 0
             for m in range(M):
                 tmp_idx.append((i, j+m))
