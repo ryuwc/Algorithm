@@ -38,4 +38,3 @@ for i in range(len_info+1, max_idx, -1):
         tmp = record[i - 1]
 
 print(rst+max_hei)
-
