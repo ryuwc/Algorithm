@@ -12,6 +12,8 @@ record[0][0] = N*N
 cnt = (N*N)-1
 k = 0
 
+
+
 while cnt > 0:
     nr, nc = sr + D[k][0], sc + D[k][1]
     if 0 <= nr < N and 0 <= nc < N and record[nr][nc] == 0:
