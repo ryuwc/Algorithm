@@ -15,7 +15,7 @@ def bfs(r, c, visit):
                 visit.add((nr, nc))
                 tmp_rst += 1
                 Q.append((nr, nc))
-    
+
     return tmp_rst  # 현재 그림의 영역을 리턴
 
 
