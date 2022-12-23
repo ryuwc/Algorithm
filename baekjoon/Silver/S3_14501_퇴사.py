@@ -28,8 +28,10 @@ for _ in range(N):
     meeting.append(val)
 
 rst = -1
-for i in range(N):
-    solve(i, 0)
+# for i in range(N):
+#     solve(i, 0)
+
+solve(0, 0)
 
 print(rst)
 
