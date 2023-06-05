@@ -3,19 +3,11 @@ import sys
 
 def main():
     N, M = map(int, sys.stdin.readline().strip().split())
-    prices = list()
+    prices = sorted([int(sys.stdin.readline().strip()) for _ in range(M)], reverse=True)
 
-    max_price = 0
-    max_profit = 0
-
-    for _ in range(M):
-        prices.append(int(sys.stdin.readline().strip()))
-    prices = sorted(prices, reverse=True)
-
-    for idx, price in enumerate(prices):
-        if (idx+1) > N:
-            break
-        tmp_profit = price * (idx + 1)
+    max_profit = max_price = 0
+    for idx, price in enumerate(prices[:N], 1):
+        tmp_profit = price * idx
         if max_profit < tmp_profit:
             max_profit = tmp_profit
             max_price = price
