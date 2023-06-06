@@ -1,4 +1,5 @@
-import sys; from collections import deque
+import sys
+from collections import deque
 
 
 def bfs(r, c, visit):
