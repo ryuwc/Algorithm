@@ -1,36 +1,32 @@
-import sys
+import sys;
 
-sys.stdin = open('sample_input_전기카트.txt', 'r')
+sys.stdin = open('5189.txt', 'r')
 
 
-def dfs(now, s, visited, arr, N, result):
-    if 0 not in visited:
-        return min(s, result)
-    elif s > result:
-        return result
-    else:
-        for next in range(N):
-            if next == now or visited[next]:
-                continue
+def solve(now, cur_sum, cart, visit, rst, N):
+    if 0 not in visit:
+        rst = min(rst, cur_sum + cart[now][0])
+        return rst
+    if cur_sum > rst:
+        return rst
 
-            if next == 0 and 0 in visited[1:]:
-                continue
+    for next in range(1, N):
+        if visit[next]: continue
+        visit[next] = 1
+        rst = min(solve(next, cur_sum + cart[now][next], cart, visit, rst, N), rst)
+        visit[next] = 0
 
-            visited[next] = 1
-            result = dfs(next, s + arr[now][next], visited, arr, N, result)
-            visited[next] = 0
-
-        return result
+    return rst
 
 
 def main():
     T = int(input())
     for tc in range(1, T + 1):
         N = int(input())
-        arr = [list(map(int, input().split())) for _ in range(N)]
-        visited = [0] * N
-        result = dfs(0, 0, visited, arr, N, float('inf'))
-        print(f'#{tc}', result)
+        cart = [list(map(int, input().split())) for _ in range(N)]
+        visit = [1] + [0] * (N - 1)
+        rst = 9e9
+        print(f'#{tc}', solve(0, 0, cart, visit, rst, N))
 
 
 if __name__ == '__main__':
